@@ -10,7 +10,10 @@ int main()
 	SeqList<int> a;
 	//a.menu();
 	Goods b;
-	b.menu();
-	cout << b << endl;
+	int c[4] = {0,1,2,3};
+	LinkList<int> d(c,4);
+	LinkList<int> f(c,4);
+	Merge(d,f);
+	d.Menu();
     return 0;
 }

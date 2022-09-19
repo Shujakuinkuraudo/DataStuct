@@ -1,5 +1,4 @@
-#ifndef _GLOBAL_H
-#define _GLOBAL_H
+#pragma once
 #include <iostream>
 #include <iomanip>
 #include <cstdio>
@@ -18,8 +17,8 @@
 #include <map>
 using namespace std;
 #define _for(i,a,b) for(int i=a;i<b;i++)
-#include "SeqList.h"
+#include "SeqList.hpp"
 #include "Goods.h"
-#include "LinkList.h"
+#include "LinkList.hpp"
 
-#endif
+
