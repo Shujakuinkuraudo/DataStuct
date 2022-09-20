@@ -20,5 +20,6 @@ using namespace std;
 #include "SeqList.hpp"
 #include "Goods.h"
 #include "LinkList.hpp"
+#include "Students.h"
 
 

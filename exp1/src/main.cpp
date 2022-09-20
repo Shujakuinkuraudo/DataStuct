@@ -14,6 +14,7 @@ int main()
 	LinkList<int> d(c,4);
 	LinkList<int> f(c,4);
 	Merge(d,f);
-	d.Menu();
+	Students e;
+	e.Menu();
     return 0;
 }

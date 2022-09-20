@@ -13,14 +13,15 @@ class Node
 template <class T>
 class LinkList
 {
-    Node <T> *head =new Node<T>(0); 
+    Node <T> *head =new Node<T>; 
+    int length = 0;
     public:
     LinkList();
     LinkList(T a[],int n);
     ~LinkList();
-    int ListLength();
-    T& Get(int index) const;
-    T& operator[](int index) const;
+    int ListLength() const;
+    T& Get(int index) ;
+    T& operator[](int index) ;
     int Locate(T item);
     void Insert(int index, T item);
     T Delete(int index);

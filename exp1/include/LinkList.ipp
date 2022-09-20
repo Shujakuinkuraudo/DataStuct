@@ -1,4 +1,9 @@
 template <class T>
+LinkList<T>::LinkList()
+{
+
+}
+template <class T>
 LinkList<T>::LinkList(T a[], int n)
 {
     Node<T> *rear = head;
@@ -22,23 +27,16 @@ LinkList<T>::~LinkList()
 }
 
 template <class T>
-int LinkList<T>::ListLength()
+int LinkList<T>::ListLength() const
 {
-    int count = 0;
-    auto ahead = head;
-    while (ahead->next)
-    {
-        ahead = ahead->next;
-        count++;
-    }
-    return count;
+    return length;
 }
 template <class T>
-T &LinkList<T>::Get(int index) const
+T &LinkList<T>::Get(int index) 
 {
     int count = -1;
     auto ahead = head;
-    while (ahead->next)
+    while (ahead)
     {
         ahead = ahead->next;
         count++;
@@ -48,7 +46,7 @@ T &LinkList<T>::Get(int index) const
     return head->data;
 }
 template <class T>
-T &LinkList<T>::operator[](int index) const
+T &LinkList<T>::operator[](int index) 
 {
     return Get(index);
 }
@@ -75,12 +73,13 @@ void LinkList<T>::Insert(int index, T item)
     Node<T> *temp = new Node<T>(item);
     int count = -1;
     auto ahead = head;
-    while (ahead->next)
+    while (ahead)
     {
         if (count == index - 1)
         {
             temp->next = ahead->next;
             ahead->next = temp;
+            length++;
             return;
         }
         else
@@ -111,6 +110,7 @@ T LinkList<T>::Delete(int index)
             count++;
         }
     }
+    length--;
     return head->data;
 }
 template <class T>
