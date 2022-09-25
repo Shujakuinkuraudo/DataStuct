@@ -99,20 +99,20 @@ class Node
     Node(T a):data(a){};
 };
 
-template<class T>
-void Copy(Node<T>* now,Node<T>* other)
-{
-    now -> data = other->data;
-    Node<T>* Oahead = other->next;
-    Node<T>* Nahead = now;
-    while(Oahead)
-    {
-        Node<T>* temp =new Node<T>(Oahead->data);
-        Nahead->next = temp;
-        Nahead = Nahead->next;
-        Oahead = Oahead -> next;
-    }
-}
+// template<class T>
+// void Copy(Node<T>* now,Node<T>* other)
+// {
+//     now -> data = other->data;
+//     Node<T>* Oahead = other->next;
+//     Node<T>* Nahead = now;
+//     while(Oahead)
+//     {
+//         Node<T>* temp =new Node<T>(Oahead->data);
+//         Nahead->next = temp;
+//         Nahead = Nahead->next;
+//         Oahead = Oahead -> next;
+//     }
+// }
 
 template<class T>
 void show(Node<T>* now)
@@ -124,14 +124,70 @@ void show(Node<T>* now)
     }
     cout << endl;
 }
+void Generator(Node<int> *head,Node<int> *odd,Node<int> *even)
+{
+    Node<int> *pt = head;
+    if(!odd)
+        odd = new Node<int>(0);
+    if(!even)
+        even = new Node<int>(0);
+    Node<int> *pt_odd = odd,*pt_even = even;
+    while(pt->next)
+    {
+        pt = pt->next;
+        int v = pt->data;
+        if(v%2)
+            pt_odd = pt_odd->next = new Node<int>(v);
+        else
+            pt_even = pt_even-> next = new Node<int>(v);
+    }
+}
 
+void ShowIncrease(Node<int> *head)
+{
+    if(!head || !(head->next))
+        return;
+    int pre_min,now_min;
+    pre_min = -1;
+    while(true)
+    {
+        bool br = 0;
+        Node<int> *pt = head;
+        now_min = 0x7fffffff;
+        while(pt->next)
+        {
+            pt = pt->next;
+            int v= pt->data;
+            if(v<now_min && v> pre_min)
+                now_min = v;
+            if(!(pt->next))
+                if(now_min == pre_min)
+                    br = true;
+        }
+        pre_min = now_min;
+        pt = head;
+        while(pt->next)
+        {
+            pt = pt->next;
+            if(pt->data == pre_min)
+                cout << pt->data << " ";
+        }
+        if(br)
+        {
+            cout << endl;
+            break;
+        }
+    }
+
+
+}
 int main(){
-    Node<int> a[5] = {1,2,3,4,5};
+    Node<int> a[5] = {1,8,7,4,5};
     a[0].next = a+1;
     a[1].next = a+2;
-    Copy<int>(a+4,a);
-    show(a);
-    show(a+4);
+    a[2].next = a+3;
+    a[3].next = a+4;
+    ShowIncrease(a);
 
     return 0;
 }
