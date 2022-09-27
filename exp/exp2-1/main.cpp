@@ -15,9 +15,11 @@ int main()
 	// _for(i,0,20)
 	// 	cout << a.Pop() <<" ";
 	// cout << endl;
-	string a = "8/(5-3)@";
+	string a = "1-9*(4+3)@";
 	Prefix sl;
-	cout << sl.ToSuffix(a)<<endl;
+	a = sl.ToSuffix(a);
 	// cout << sl.Solve(a)<<endl;
+	Suffix sl1;
+	cout << sl1.Solve(a);
 	return 0;
 }

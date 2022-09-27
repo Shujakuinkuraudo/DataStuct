@@ -148,20 +148,24 @@ int Prefix::SolveEnhanced(string prefix_expression)
 string Prefix::ToSuffix(string prefix_expression)
 {
     string suffix = "";
+    OPTR.Push('@');
     _for(i,0,prefix_expression.length())
     {
-        // cout << OPTR.Top() << endl;
-        OPTR.Push('@');
+        // cout << OPTR.Top();
         char c = prefix_expression[i];
-        if(IsNum(c))
-            suffix+=c;
+        if(c=='@')
+        {
+            while(!OPTR.Empty())
+                suffix += OPTR.Pop();
+        }
+        else if(IsNum(c))
+            {suffix+=c;}
         else if(c=='(')
             OPTR.Push(c);
         else if(c==')')
         {
             while(OPTR.Top()!='(')
-                suffix+=OPTR.Pop();
-
+                {suffix+=OPTR.Pop();}
             OPTR.Pop();
         }
         else
