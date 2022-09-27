@@ -3,7 +3,7 @@
 int main()
 {
 	SeqQueue<int> s;
-	_for(i,0,50)
+	_for(i, 0, 50)
 	{
 		s.EnQueue(i);
 		cout << s.DeQueue() << endl;
