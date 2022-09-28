@@ -13,6 +13,7 @@ public:
     T DeQueue();
     T GetQueue();
     bool Empty();
-    // void Show();
+    int Length() const;
+    void Show();
 };
 #include "SeqQueue.ipp"

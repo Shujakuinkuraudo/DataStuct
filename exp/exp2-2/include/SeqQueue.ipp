@@ -1,3 +1,9 @@
+/*** 
+ * @Date: 2022-09-27 22:00:17
+ * @LastEditors: Shujakuinkuraudo zhouyunyao1@gmail.com
+ * @LastEditTime: 2022-09-28 10:38:30
+ * @FilePath: /DSM/exp/exp2-2/include/SeqQueue.ipp
+ */
 
 template <class T>
 bool SeqQueue<T>::Empty()
@@ -39,11 +45,15 @@ SeqQueue<T>::SeqQueue()
     max_size = 5;
     front = rear = -1;
 }
-// template <class T>
-// void SeqQueue<T>::Show()
-// {
-//     _for(i, 0, max_size)
-//             cout
-//         << data[i] << " ";
-//     cout << endl;
-// }
+template <class T>
+void SeqQueue<T>::Show()
+{
+    _for(i, front+1, rear+1)
+            cout << data[i] << " ";
+    cout << endl;
+}
+template<class T>
+int SeqQueue<T>::Length() const
+{
+    return rear-front;
+}
