@@ -16,7 +16,7 @@ int main()
 	// 	cout << a.Pop() <<" ";
 	// cout << endl;
 	string a = "1-9*(4+3)@";
-	Prefix sl;
+	Infix sl;
 	a = sl.ToSuffix(a);
 	// cout << sl.Solve(a)<<endl;
 	Suffix sl1;

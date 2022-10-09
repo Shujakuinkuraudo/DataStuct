@@ -2,11 +2,11 @@
  * @Date: 2022-09-26 08:48:02
  * @LastEditors: Shujakuinkuraudo zhouyunyao1@gmail.com
  * @LastEditTime: 2022-09-26 11:07:45
- * @FilePath: /DSM/exp/exp2/include/Prefix.hpp
+ * @FilePath: /DSM/exp/exp2/include/Infix.hpp
  */
 #pragma once
 #include "head.h"
-class Prefix
+class Infix
 {
     SeqStack<char> OPTR;
     SeqStack<int> OPND;
@@ -21,4 +21,4 @@ public:
 
 };
 
-#include "Prefix.ipp"
+#include "Infix.ipp"

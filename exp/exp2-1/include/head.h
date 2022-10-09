@@ -24,7 +24,7 @@
 using namespace std;
 #define _for(i,a,b) for(int i=a;i<b;i++)
 #include "SeqStack.hpp"
-#include "Prefix.hpp"
+#include "Infix.hpp"
 #include "Suffix.hpp"
 
 

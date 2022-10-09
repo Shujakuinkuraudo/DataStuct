@@ -2,10 +2,10 @@
  * @Date: 2022-09-26 10:33:37
  * @LastEditors: Shujakuinkuraudo zhouyunyao1@gmail.com
  * @LastEditTime: 2022-09-26 10:40:25
- * @FilePath: /DSM/exp/exp2/include/Prefix.ipp
+ * @FilePath: /DSM/exp/exp2/include/Infix.ipp
  */
 
-char Prefix::CompareOp(char c, char pre_op) // a<=b    char Prefix::CompareOp(char c,char pre_op) // a<=b
+char Infix::CompareOp(char c, char pre_op) // a<=b    char Infix::CompareOp(char c,char pre_op) // a<=b
 {
     switch (c)
     {
@@ -52,13 +52,13 @@ char Prefix::CompareOp(char c, char pre_op) // a<=b    char Prefix::CompareOp(ch
     cerr << "CompareOp error" << endl;
     exit(1);
 }
-bool Prefix::IsNum(char c)
+bool Infix::IsNum(char c)
 {
     if (c <= '9' && c >= '0')
         return true;
     return false;
 }
-int Prefix::Operator(int a, char op, int b)
+int Infix::Operator(int a, char op, int b)
 {
     switch (op)
     {
@@ -74,7 +74,7 @@ int Prefix::Operator(int a, char op, int b)
     cerr << "operator error" << endl;
     exit(1);
 }
-int Prefix::Solve(string prefix_expression)
+int Infix::Solve(string prefix_expression)
 {
     OPTR.Push('@');
     _for(i, 0, prefix_expression.length())
@@ -105,7 +105,7 @@ int Prefix::Solve(string prefix_expression)
     }
     return OPND.Top();
 }
-int Prefix::SolveEnhanced(string prefix_expression)
+int Infix::SolveEnhanced(string prefix_expression)
 {
     OPTR.Push('@');
     _for(i, 0, prefix_expression.length())
@@ -145,7 +145,7 @@ int Prefix::SolveEnhanced(string prefix_expression)
     }
     return OPND.Top();
 }
-string Prefix::ToSuffix(string prefix_expression)
+string Infix::ToSuffix(string prefix_expression)
 {
     string suffix = "";
     OPTR.Push('@');
