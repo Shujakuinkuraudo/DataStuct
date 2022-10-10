@@ -20,4 +20,6 @@ public:
     T Top();
     bool Empty();
 };
+
+
 #include "SeqStack.ipp"
