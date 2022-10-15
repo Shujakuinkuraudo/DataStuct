@@ -188,27 +188,26 @@ T AddDiagTriple(MatrixTriple<T> &data )
 
 int main()
 {
-	//int next[100];
-	//char *s[7] ={"ABCDEFG","AAAAAAAA","BABBABAB","AAAAAAB","ABCABDAAABC","ABCABDABEABCABDABF","ABBACXY"};
-	//for(auto X:s)
-	//{
-		//int l = strlen(X);
-		//Gennext(X,l,next);
-		//cout << X << " " ;
-		//_for(i,0,l)
-		//{
-			//cout << next[i] << " ";
-		//}
-		//cout << endl;
-	//}
-	string s= "Do    or do not, there is no try.    ",t= "a";
-	//cout << KMPDel(s,t);
-	cout << InvertString(s);
-	//pair<int,int> lenAndStart = KMPMaxMatch(s,t);
-	//_for(i,0,lenAndStart.first)
-	//{
-		//cout << s[lenAndStart.second+i];
-	//}
+	int next[100];
+	string s[7] ={"ABCDEFG","AAAAAAAA","BABBABAB","AAAAAAB","ABCABDAAABC","ABCABDABEABCABDABF","ABBACXY"};
+	for(auto X:s)
+	{
+		Gennext(X,next);
+		cout << X << " " ;
+		_for(i,0,X.length())
+		{
+			cout << next[i] << " ";
+		}
+		cout << endl;
+	}
+	//string s= "Do    or do not, there is no try.    ",t= "a";
+	////cout << KMPDel(s,t);
+	//cout << InvertString(s);
+	////pair<int,int> lenAndStart = KMPMaxMatch(s,t);
+	////_for(i,0,lenAndStart.first)
+	////{
+		////cout << s[lenAndStart.second+i];
+	////}
 
     return 0;
 }

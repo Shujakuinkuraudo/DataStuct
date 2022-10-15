@@ -12,5 +12,13 @@ Created Time  :Mon 19 Sep 2022 10:30:17 AM CST
 
 int main()
 {
+	string s = "(d,(a,a,(a,(a,a,(a,a,a,b),a,a),a,a,a),b,b),b,a,a,a,(a,(a,a,(a,(a,a,(a,a,a,a),a,a),a,a,a),a,a),a,a,a,a),a)";
+	auto temp = Glist<char>(s);
+	cout << temp << endl;
+	temp.Sub('a','c');
+	temp.Del('c');
+	cout << temp << endl;
+	cout << temp.Depth() << endl;
+	cout << temp.Length() << endl;
     return 0;
 }

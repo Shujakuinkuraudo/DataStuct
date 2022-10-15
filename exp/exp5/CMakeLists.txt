@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(exp )
+project(exp5 )
 
 include(CTest)
 enable_testing()
 
-set(SOURCES src/main.cpp src/Students.cpp)
+set(SOURCES main.cpp )
 add_executable(exp1 ${SOURCES})
 target_include_directories(exp1 PRIVATE  include/)
 

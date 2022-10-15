@@ -4,7 +4,7 @@ project(exp )
 include(CTest)
 enable_testing()
 
-set(SOURCES src/main.cpp src/Students.cpp)
+set(SOURCES src/main.cpp )
 add_executable(exp1 ${SOURCES})
 target_include_directories(exp1 PRIVATE  include/)
 
