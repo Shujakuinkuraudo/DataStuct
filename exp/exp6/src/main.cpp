@@ -12,8 +12,11 @@ Created Time  :Mon 19 Sep 2022 10:30:17 AM CST
 
 int main()
 {
-	string s = "(d,(a,a,(a,(a,a,(a,a,a,b),a,a),a,a,a),b,b),b,a,a,a,(a,(a,a,(a,(a,a,(a,a,a,a),a,a),a,a,a),a,a),a,a,a,a),a)";
-	auto temp = Glist<char>(s);
+	string s1 = "(d,(a,a,(a,(a,a,(a,a,a,b),a,a),a,a,a),b,b),b,a,a,a,(a,(a,a,(a,(a,a,(a,a,a,a),a,a),a,a,a),a,a),a,a,a,a),a)";
+	string s2 = "(d,(a,(a,(a,a,(a,a,a,b),a,a),a,a,a),b,b),b,a,a,a,(a,(a,a,(a,(a,a,(a,a,a,a),a,a),a,a,a),a,a),a,a,a,a),a)";
+	auto temp = Glist<char>(s1);
+	auto temp2 = Glist<char>(s2);
+	cout << (temp==temp2) << endl;
 	cout << temp << endl;
 	temp.Sub('a','c');
 	temp.Del('c');

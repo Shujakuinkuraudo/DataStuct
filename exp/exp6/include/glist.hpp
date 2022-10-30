@@ -1,7 +1,32 @@
 #pragma once
 #include "head.h"
 enum GlistNodeType {ATOM,LIST};
+template<class T>
+class GlistNode;
 template <class T>
+bool _Equal(GlistNode<T>* l1,GlistNode<T>* l2) 
+{
+	if(l1==nullptr || l2==nullptr){
+		if(l1!=l2)
+			return false;
+		else
+			return true;
+	}
+	if(l1->type_ == ATOM || l2->type_ == ATOM)
+	{
+		if(l1->type_ != l2->type_)
+			return false;
+		if(l1->data_ != l2->data_) 
+			return false;
+	}
+	if(l1->type_ == LIST || l2->type_ == LIST)
+		if(l1->type_ == l2->type_)
+			return _Equal(l1->sublist_,l2->sublist_);
+	if(!_Equal(l1->next_,l2->next_)) return false;
+	return true;
+
+}
+template<class T>
 class GlistNode
 {
 	public:
@@ -129,20 +154,16 @@ class Glist{
 	//}
 	GlistNode<T> *  _Del(T a,GlistNode<T> * head)
 	{
-		auto falsehead = new GlistNode<T>();
-			falsehead -> next_ = head;
-		auto front = falsehead->next_;
-		auto rear = falsehead;
+		GlistNode<T> *  falsehead = new GlistNode<T>();
+		falsehead -> next_ = head;
+		GlistNode<T> * front = falsehead->next_,rear = falsehead;
 		while(front)
 		{
 			if(front->type_ == LIST )
-			{
-			front->sublist_ = _Del(a,front->sublist_);
-
-			}
+				front->sublist_ = _Del(a,front->sublist_);
 			else if(front->data_ == a)
 			{
-				auto temp = front;
+				GlistNode<T> *  temp = front;
 				rear -> next_ = front = front -> next_;
 				delete temp;
 				continue;
@@ -150,9 +171,9 @@ class Glist{
 			front = front->next_;
 			rear = rear->next_;
 		}
-
-
-		return falsehead->next_;
+		GlistNode<T> *  res = falsehead->next_;
+		delete falsehead;
+		return res;
 	}
 
 	public:
@@ -180,5 +201,32 @@ class Glist{
 	void Del(T a)
 	{
 		head_ = _Del(a,head_);
+	}
+	template<class U>
+	friend	bool _Equal(Glist<U>* l1,Glist<U>* l2);
+	//{
+		//if(l1==nullptr || l2==nullptr){
+			//if(l1!=l2)
+				//return false;
+			//else
+				//return true;
+		//}
+		//if(l1->type_ == ATOM || l2->type_ == ATOM)
+		//{
+			//if(l1->type_ != l2->type_)
+				//return false;
+			//if(l1->data_ != l2->data_) 
+				//return false;
+		//}
+		//if(l1->type_ == LIST || l2->type_ == LIST)
+			//if(l1->type_ == l2->type_)
+				//return _Equal(l1->sublist_,l2->sublist_);
+		//if(!_Equal(l1->next_,l2->next_)) return false;
+		//return true;
+
+	//}
+	bool operator==(Glist<T>& t2)
+	{
+		return _Equal<T>(head_,t2.head_);
 	}
 };
