@@ -17,5 +17,6 @@
 using namespace std;
 #define _for(i,a,b) for(int i=a;i<b;i++)
 #include "bi_tree.hpp"
+#include "cs_tree.hpp"
 
 
