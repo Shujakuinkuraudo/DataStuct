@@ -15,7 +15,7 @@ template<class T>
 		return ans;
 	}
 		template<class T>
-	bool BiTree<T>::IsCompleteBinaryTree2()  
+	bool BiTree<T>::IsCompleteBinaryTree()  
 	{  
 		queue<BiNode<T> *>q;  
 		q.push(root_);  
