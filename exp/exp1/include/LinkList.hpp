@@ -4,63 +4,66 @@
 template <class T>
 class Node
 {
-    public:
+public:
     T data;
-    Node<T>* next=nullptr;
-    Node(){}
-    Node(T data):data(data){};
+    Node<T> *next = nullptr;
+    Node() {}
+    Node(T data) : data(data){};
 };
 template <class T>
 class LinkList
 {
-    Node <T> *head =new Node<T>; 
+    Node<T> *head = new Node<T>;
     int length = 0;
-    public:
+
+public:
     LinkList();
-    LinkList(T a[],int n);
+    LinkList(T a[], int n);
     ~LinkList();
     int ListLength() const;
-    T& Get(int index) ;
-    T& operator[](int index) ;
+    T &Get(int index);
+    T &operator[](int index);
     int Locate(T item);
     void Insert(int index, T item);
     T Delete(int index);
     void Reverse();
     void Menu();
-    friend ostream& operator<<(ostream& out,const LinkList<T>& L)
+    friend ostream &operator<<(ostream &out, const LinkList<T> &L)
     {
         auto pt = L.head;
-        while(pt->next)
+        while (pt->next)
         {
             pt = pt->next;
             out << pt->data << " ";
         }
         return out;
     }
-    friend void Merge(LinkList<T>& l1,const LinkList<T>& l2)
+    friend void Merge(LinkList<T> &l1, const LinkList<T> &l2)
     {
-        auto L = l1.head->next; auto R = l2.head->next;
+        auto L = l1.head->next;
+        auto R = l2.head->next;
         Node<T> *head = new Node<T>;
         auto ahead = head;
-        while(L || R)
+        while (L || R)
         {
-            if(!L) 
+            if (!L)
             {
-                ahead ->next =new Node<T>(R->data);
+                ahead->next = new Node<T>(R->data);
                 R = R->next;
             }
-            else if(!R)
+            else if (!R)
             {
-                ahead ->next = new Node<T>(L->data);
+                ahead->next = new Node<T>(L->data);
                 L = L->next;
             }
-            else if(L->data < R->data)
+            else if (L->data < R->data)
             {
-                ahead -> next = new Node<T>(L->data);
+                ahead->next = new Node<T>(L->data);
                 L = L->next;
             }
-            else{
-                ahead ->next = new Node<T>(R->data);
+            else
+            {
+                ahead->next = new Node<T>(R->data);
                 R = R->next;
             }
             ahead = ahead->next;

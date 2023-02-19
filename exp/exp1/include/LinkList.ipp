@@ -1,7 +1,6 @@
 template <class T>
 LinkList<T>::LinkList()
 {
-
 }
 template <class T>
 LinkList<T>::LinkList(T a[], int n)
@@ -32,7 +31,7 @@ int LinkList<T>::ListLength() const
     return length;
 }
 template <class T>
-T &LinkList<T>::Get(int index) 
+T &LinkList<T>::Get(int index)
 {
     int count = -1;
     auto ahead = head;
@@ -46,7 +45,7 @@ T &LinkList<T>::Get(int index)
     return head->data;
 }
 template <class T>
-T &LinkList<T>::operator[](int index) 
+T &LinkList<T>::operator[](int index)
 {
     return Get(index);
 }
@@ -133,39 +132,39 @@ void LinkList<T>::Menu()
 {
     int op;
     cout << "1.长度 2.序号(index) 3.查找(item)"
-            << "4.插入(index,item) 5.删除(index)"
-            <<"6.反转 7.显示" << endl;
+         << "4.插入(index,item) 5.删除(index)"
+         << "6.反转 7.显示" << endl;
 
     int index;
     T item;
     cin >> op;
-    switch(op)
+    switch (op)
     {
-        case 1:
-            cout << ListLength() << endl;
-            break;
-        case 2:
-            cin >> index;
-            cout << (*this)[index]<<endl;
-            break;
-        case 3:
-            cin >> item;
-            cout << Locate(item) << endl;
-            break;
-        case 4:
-            cin >> index >> item;
-            Insert(index,item);
-            break;
-        case 5:
-            cin >> index;
-            Delete(index);
-            break;
-        case 6:
-            Reverse();
-            break;
-        case 7:
-            cout << *this;
-            break;
+    case 1:
+        cout << ListLength() << endl;
+        break;
+    case 2:
+        cin >> index;
+        cout << (*this)[index] << endl;
+        break;
+    case 3:
+        cin >> item;
+        cout << Locate(item) << endl;
+        break;
+    case 4:
+        cin >> index >> item;
+        Insert(index, item);
+        break;
+    case 5:
+        cin >> index;
+        Delete(index);
+        break;
+    case 6:
+        Reverse();
+        break;
+    case 7:
+        cout << *this;
+        break;
     }
     Menu();
 }
